@@ -1,15 +1,15 @@
-TEX = latexmk -pdf -shell-escape -interaction=nonstopmode -file-line-error
-BIB = bibter
+TEX = pdflatex -shell-escape -interaction=nonstopmode -file-line-error
+BIB = biber
 FILE = defense
 
-.SUFFIXES: .aux .pdf .tex
+.SUFFIXES: .aux .pdf .tex .toc
 .PHONY: clean
 
 all :
 	$(TEX) $(FILE).tex
-# 	$(BIB) $(FILE)
-# 	$(TEX) $(FILE).tex
-# 	$(TEX) $(FILE).tex
+	$(BIB) $(FILE)
+	$(TEX) $(FILE).tex
+	$(TEX) $(FILE).tex
 
 
 clean: 
