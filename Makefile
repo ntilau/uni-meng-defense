@@ -1,5 +1,5 @@
 TEX = pdflatex -shell-escape -interaction=nonstopmode -file-line-error
-BIB = bibtex
+BIB = bibter
 FILE = defense
 
 .SUFFIXES: .aux .pdf .tex
@@ -7,9 +7,11 @@ FILE = defense
 
 all :
 	$(TEX) $(FILE).tex
-	$(BIB) $(FILE).aux
+	$(BIB) $(FILE)
+	$(BIB) $(FILE)
+	$(TEX) $(FILE).tex
 	$(TEX) $(FILE).tex
 	$(TEX) $(FILE).tex
 
 clean: 
-	rm -rf *.aux *.loa *.lof *.log *.lot *.toc *.bbl *.blg
+	rm -rf *.snm *.lpr *.nav *.out *.aux *.loa *.lof *.log *.lot *.toc *.bbl *.blg
