@@ -1,4 +1,4 @@
-TEX = pdflatex -shell-escape -interaction=nonstopmode -file-line-error
+TEX = latexmk -pdf -shell-escape -interaction=nonstopmode -file-line-error
 BIB = bibter
 FILE = defense
 
@@ -7,11 +7,10 @@ FILE = defense
 
 all :
 	$(TEX) $(FILE).tex
-	$(BIB) $(FILE)
-	$(BIB) $(FILE)
-	$(TEX) $(FILE).tex
-	$(TEX) $(FILE).tex
-	$(TEX) $(FILE).tex
+# 	$(BIB) $(FILE)
+# 	$(TEX) $(FILE).tex
+# 	$(TEX) $(FILE).tex
+
 
 clean: 
-	rm -rf *.snm *.lpr *.nav *.out *.aux *.loa *.lof *.log *.lot *.toc *.bbl *.blg
+	rm -rf *.snm *.lpr *.nav *.out *.aux *.loa *.lof *.log *.lot *.toc *.bbl *.blg *.fls *.fdb_latexmk *.synctex.gz *.vrb *.dvi *.ps
